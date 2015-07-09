@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+<!--     Создайте счетчик, который начинает отчет с 1 и заканчивается на 30, также добавьте кнопки который останавливают отчет, и запускают его заново и добавьте кнопку обнуляющую отчет. Также попробуйте изменить код так чтобы отчет начинался с 30 и заканчивался на 1. -->
+<p id="demo"></p>
+ <button onclick="counter1()">Таймер от 1 до 30</button>
+ <button onclick="stopT()">Остановить таймер</button>
+  <button onclick="restartT()">Возобновить таймер</button>
+ <button onclick="resetT()">Обнулить таймер</button>
+ <button onclick="counter2()">Таймер от 30 до 1</button>
+<script>
+	var timeInterval = 1000;
+	var timer = 0;
+	var i = 1;
+	
+	function counter1(){
+		//var i = 1;
+		timer = setInterval(function(){
+								document.getElementById("demo").innerHTML = i;
+								if (i == 30) clearInterval(timer);
+								i++;
+								}, timeInterval);
+								
+	}
+	
+	function counter2(){
+		var i = 30;
+		var timer = setInterval(function(){
+								document.getElementById("demo").innerHTML = i;
+								if (i == 1) clearInterval(timer);
+								i--;
+								}, timeInterval);
+								
+	}
+	
+	function stopT (){
+		clearInterval(timer);
+	}
+	
+	function restartT(){
+		timer = setInterval(function(){
+								document.getElementById("demo").innerHTML = i;
+								if (i == 30) clearInterval(timer);
+								i++;
+								}, timeInterval);
+	}
+	
+	function resetT(){
+		clearInterval(timer);
+		var i = 1;
+		timer = setInterval(function(){
+								document.getElementById("demo").innerHTML = i;
+								if (i == 30) clearInterval(timer);
+								i++;
+								}, timeInterval);
+	}
+	
+	
+</script>
+</body>
+</html>
