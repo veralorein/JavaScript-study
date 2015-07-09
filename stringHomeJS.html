@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+	<button onclick="myFunction()">Count "a" in the string</button></br>
+	<script>
+		var myString = "In everyday speech a phrase may be any group HJKKL VVVVords";
+		console.log(myString);
+		var x = myString.split(" ");
+		console.log(x);
+		var i = 0;
+		
+			for(i in x){
+				if (i == 0){
+					x[0] = x[0].toUpperCase();
+				} if (i == (x.length - 2)){
+					x[x.length - 1] = x[x.length - 1].toLowerCase();
+					x[x.length - 2] = x[x.length - 2].toLowerCase();
+				}
+				console.log("<li>"+ x[i] + "</li>");
+			}
+			
+		function myFunction() {
+			var patt = new RegExp("a", "g");
+			var result = myString.match(patt);
+			console.log("amount of 'a' - elements in the string: " + result.length);
+		}
+		myFunction();
+	</script>
+</body>
+</html>
