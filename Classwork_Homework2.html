@@ -21,7 +21,7 @@
 		//var i = 1;
 		timer = setInterval(function(){
 								document.getElementById("demo").innerHTML = i;
-								if (i == 30) clearInterval(timer);
+								if (i == 30) stopT ();
 								i++;
 								}, timeInterval);
 								
@@ -29,9 +29,9 @@
 	
 	function counter2(){
 		var i = 30;
-		var timer = setInterval(function(){
+		timer = setInterval(function(){
 								document.getElementById("demo").innerHTML = i;
-								if (i == 1) clearInterval(timer);
+								if (i == 1) stopT ();
 								i--;
 								}, timeInterval);
 								
@@ -44,17 +44,17 @@
 	function restartT(){
 		timer = setInterval(function(){
 								document.getElementById("demo").innerHTML = i;
-								if (i == 30) clearInterval(timer);
+								if (i == 30) stopT ();
 								i++;
 								}, timeInterval);
 	}
 	
 	function resetT(){
-		clearInterval(timer);
+		stopT ();
 		var i = 1;
 		timer = setInterval(function(){
 								document.getElementById("demo").innerHTML = i;
-								if (i == 30) clearInterval(timer);
+								if (i == 30) stopT ();
 								i++;
 								}, timeInterval);
 	}

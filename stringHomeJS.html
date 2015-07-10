@@ -12,14 +12,12 @@
 		console.log(myString);
 		var x = myString.split(" ");
 		console.log(x);
-		var i = 0;
 		
-			for(i in x){
+			for(var i in x){
 				if (i == 0){
 					x[0] = x[0].toUpperCase();
-				} if (i == (x.length - 2)){
-					x[x.length - 1] = x[x.length - 1].toLowerCase();
-					x[x.length - 2] = x[x.length - 2].toLowerCase();
+				} if ((x.length - 2)<= i){
+					x[i] = x[i].toLowerCase();
 				}
 				console.log("<li>"+ x[i] + "</li>");
 			}
