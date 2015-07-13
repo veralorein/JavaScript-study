@@ -1,0 +1,54 @@
+﻿<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт. При клике на ссылку див пропадает, если повторно нажать ссылку див и текст должны вернуться. Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+ <!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+	.invisible {
+		display: none;
+	}
+	.visibleDiv {
+		display: block;
+	}
+  </style>
+  <script>
+	window.onload = function(){
+		var invisible = document.getElementsByClassName("invisible");
+		var link1 = document.getElementById("link1");
+		var removemylink = document.getElementById("removemylink");
+		
+		function decorLink(e){
+			this.style.textDecoration = "none";
+			e.preventDefault();//позволяет отменить действие по умолчанию, которое связанно с событием.
+			return false; // Для старых браузеров
+		};
+		link1.addEventListener("click", decorLink);
+		
+		function makeDivVisible(e){
+			var i = 0;
+			if (i < invisible.length){
+				invisible[i].classList.toggle("visibleDiv");
+			}
+		};
+		link1.addEventListener("click", makeDivVisible);
+		
+		function removeHandler (){
+			link1.removeEventListener("click", makeDivVisible);
+		};
+		removemylink.addEventListener("click", removeHandler);
+	}
+  </script>
+</head>
+<body>
+	<a href = "#" id = "link1">Link</a>
+	<div class = "invisible">
+		DIV, THAT WAS INVISIBLE!   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+	</div>
+	<div>
+		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+	</div>
+	 <button id="removemylink">убрать обработчик с Link</button>
+</body>
+</html>
